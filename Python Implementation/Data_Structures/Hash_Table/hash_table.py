@@ -2,6 +2,7 @@ class HashTable:
     def __init__(self):
         self.MAX = 30
         self.arr = [[] for i in range(self.MAX)]
+        
 
     def hash_code(self, key):
         CONSTANT_HASH = 31
@@ -44,19 +45,23 @@ class HashTable:
                 del self.arr[hash][idx]
 
     def __str__(self):
-        return str(self.arr)
+        str_elements = ""
+        for element in self.arr:
+            str_elements += str(element) + "\n"
+        return str_elements
+        
 
 
-
-table = HashTable()
-table['march 6'] = 130
-table['march 17'] = 90
-table['march 8'] = 130
-table['march 9'] = 90
-print(table)
-del table['march 9']
-table['march 6'] = 50
-print(table)
-# while True:
-#     print(table.hash_code(input("Enter a word:")))
-del table
+if __name__ == "__main__":
+    table = HashTable()
+    table['march 6'] = 130
+    table['march 17'] = 90
+    table['march 8'] = 130
+    table['march 9'] = 90
+    print(table)
+    del table['march 9']
+    table['march 6'] = 50
+    print(table)
+    # while True:
+    #     print(table.hash_code(input("Enter a word:")))
+    del table
